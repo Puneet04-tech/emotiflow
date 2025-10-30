@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+
+.popup-container {
+    padding: 16px;
+    color: white;
+}
+
+.popup-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.popup-header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.popup-header p {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.emotion-display {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.emotion-display .status-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.emotion-display .emotion-text {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.emotion-display .confidence {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.emotion-display .modalities {
+    font-size: 11px;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.controls button {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.controls .dashboard-btn {
+    background: white;
+    color: #667eea;
+}
+
+.controls .dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.controls .pause-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.controls .pause-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.footer {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footer button:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.loading {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

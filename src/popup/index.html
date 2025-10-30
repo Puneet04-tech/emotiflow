@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotiFlow - Quick Controls</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="popup-header">
+            <h1>EmotiFlow</h1>
+            <p>Emotional Wellness Companion</p>
+        </div>
+
+        <div class="emotion-display">
+            <div class="status-label">Current Status</div>
+            <div class="emotion-text" id="emotion-status">🙂 Analyzing...</div>
+        </div>
+
+        <div class="controls">
+            <button type="button" class="dashboard-btn" id="open-dashboard">Dashboard</button>
+            <button type="button" class="pause-btn" id="toggle-tracking">Pause</button>
+        </div>
+
+        <div class="footer">
+            <button type="button" id="settings-btn">⚙️ Settings</button>
+            <button type="button" id="help-btn">❓ Help</button>
+        </div>
+    </div>
+
+    <script type="module" src="./index.ts"></script>
+</body>
+</html>
