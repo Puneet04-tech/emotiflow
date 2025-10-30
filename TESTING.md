@@ -4,6 +4,14 @@ Purpose
 -------
 This document explains how judges and evaluators can reproducibly test EmotiFlow locally. It includes prerequisites, build and load instructions, automated test harnesses, manual test scenarios, expectations for correctness, and a scoring checklist.
 
+Quick Testing Summary
+---------------------
+To test EmotiFlow locally, install dependencies (npm install), optionally download the face-api models (run the included script), then load the extension into Chrome (enable Developer mode → Load unpacked and point to the built output or the repo root when using Vite in dev mode). Give the extension permission to use the camera and microphone when prompted. Open the EmotiFlow sidepanel and the popup to confirm the UI loads, then exercise each modality: speak a short sentence to trigger voice analysis, type or select text in a page to trigger the text sentiment content script, and allow the camera so facial detection (optional opt‑in) can run; check that the sidepanel updates with the current emotion, timeline, and wellness suggestions after each change. Run the included test harnesses for automated checks: run the negation test (npm run test:negation) to verify negated sentences are correctly classified, and run the fusion tests (scripts/test_fusion.ts) to simulate multi‑modal events and confirm the background fusion produces stable emotion state updates and deterministic suggestion outputs. For judges: inspect IndexedDB under Application → EmotiFlowDB to validate that emotion history and the suggestion cache are stored (encrypted), and consult the TESTING.md in the repo for step‑by‑step checklists, expected outputs, and troubleshooting tips (camera/mic permissions, Gemini availability, or fallbacks).
+
+Problem statement
+-----------------
+EmotiFlow addresses the real-world problem of brittle and privacy‑sensitive emotion sensing in browser contexts by providing a robust, local‑first multimodal emotion detection and wellness intervention system that fuses facial, voice, and text signals to produce timely, contextualized suggestions. Many existing tools either run heuristics that misclassify negated language (e.g., "I'm not happy"), depend entirely on cloud models that raise privacy concerns, or fail to consistently emit interventions when users’ emotional states change; EmotiFlow solves these issues by improving negation handling in its NLP pipeline, using a deterministic on‑device suggestion generator with configurable cloud fallbacks (opt‑in), caching results locally, and ensuring the fusion and suggestion pipeline emits an updated suggestion after every detected emotion change—critical for reliable, privacy‑respecting, real‑time interventions.
+
 Prerequisites
 -------------
 - Operating system: Windows (tested), macOS, Linux
